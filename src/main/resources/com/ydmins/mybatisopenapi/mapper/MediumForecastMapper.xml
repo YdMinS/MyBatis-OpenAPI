@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ydmins.mybatisopenapi.mapper.MediumForecastMapper">
+    <insert id="save" parameterType="com.ydmins.mybatisopenapi.model.MediumForecast">
+        INSERT
+        INTO mediumForecast(mediumTermId, tmFc, stnId, wfSv)
+        VALUES (#{mediumTermId}, #{tmFc}, #{stnId}, #{wfSv})
+    </insert>
+
+    <select id="findByBaseTime" parameterType="String" resultType="com.ydmins.mybatisopenapi.model.MediumForecast">
+        SELECT *
+        FROM mediumForecast
+        WHERE tmFc = #{tmFc}
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        DELETE
+        FROM mediumForecast
+        WHERE mediumTermId = #{mediumTermId}
+    </delete>
+</mapper>

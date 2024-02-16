@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ydmins.mybatisopenapi.mapper.MediumLandForecastMapper">
+    <insert id="save" parameterType="com.ydmins.mybatisopenapi.model.MediumLandForecast">
+        INSERT
+        INTO mediumLandForecast(mediumLandId, tmFc, regId, rnSt3Am, rnSt3Pm, rnSt4Am, rnSt4Pm, rnSt5Am, rnSt5Pm,
+                                rnSt6Am, rnSt6Pm, rnSt7Am, rnSt7Pm, rnSt8, rnSt9, rnSt10, wf3Am, wf3Pm, wf4Am, wf4Pm,
+                                wf5Am, wf5Pm, wf6Am, wf6Pm, wf7Am, wf7Pm, wf8, wf9, wf10)
+        VALUES (#{mediumLandId}, #{tmFc}, #{regId}, #{rnSt3Am}, #{rnSt3Pm}, #{rnSt4Am}, #{rnSt4Pm}, #{rnSt5Am},
+                #{rnSt5Pm}, #{rnSt6Am}, #{rnSt6Pm}, #{rnSt7Am}, #{rnSt7Pm}, #{rnSt8}, #{rnSt9}, #{rnSt10}, #{wf3Am},
+                #{wf3Pm}, #{wf4Am}, #{wf4Pm}, #{wf5Am}, #{wf5Pm}, #{wf6Am}, #{wf6Pm}, #{wf7Am}, #{wf7Pm}, #{wf8},
+                #{wf9}, #{wf10})
+    </insert>
+
+    <select id="findByBaseTime" parameterType="String" resultType="com.ydmins.mybatisopenapi.model.MediumLandForecast">
+        SELECT *
+        FROM mediumLandForecast
+        WHERE tmFc = #{tmFc}
+    </select>
+
+    <delete id="deleteById" parameterType="String" >
+        DELETE
+        FROM mediumLandForecast
+        WHERE mediumLandId = #{mediumLandId}
+    </delete>
+
+</mapper>

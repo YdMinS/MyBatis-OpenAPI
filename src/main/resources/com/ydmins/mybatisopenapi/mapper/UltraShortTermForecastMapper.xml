@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ydmins.mybatisopenapi.mapper.UltraShortTermForecastMapper">
+    <insert id="save" parameterType="com.ydmins.mybatisopenapi.model.UltraShortTermForecast">
+        INSERT
+        INTO ultraShortTermForecast(ultraShortId, baseDate, baseTime, category,
+            fcstDate, fcstTime, fcstValue, nx, ny)
+        VALUES (#{ultraShortId}, #{baseDate}, #{baseTime}, #{category},
+                #{fcstDate}, #{fcstTime}, #{fcstValue}, #{nx}, #{ny})
+    </insert>
+
+    <select id="checkDuplicate" parameterType="com.ydmins.mybatisopenapi.web.dto.UltraShortForecastSearchDto"
+            resultType="com.ydmins.mybatisopenapi.model.UltraShortTermForecast">
+        SELECT *
+        FROM ultraShortTermForecast
+        WHERE baseDate = #{baseDate} and baseTime = #{baseTime} and nx = #{nx} and ny=#{ny}
+        LIMIT 1
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        DELETE
+        FROM ultraShortTermForecast
+        WHERE ultraShortId = #{ultraShortId}
+    </delete>
+</mapper>

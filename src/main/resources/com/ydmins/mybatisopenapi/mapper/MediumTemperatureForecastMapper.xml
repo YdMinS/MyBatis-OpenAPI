@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ydmins.mybatisopenapi.mapper.MediumTemperatureForecastMapper">
+    <insert id="save" parameterType="com.ydmins.mybatisopenapi.model.MediumTemperatureForecast">
+        INSERT
+        INTO mediumTemperatureForecast(mediumTempId, tmFc, regId, taMin3 ,taMin3Low, taMin3High, taMax3, taMax3Low,
+                                       taMax3High,
+                                       taMin4, taMin4Low, taMin4High, taMax4, taMax4Low, taMax4High,
+                                       taMin5, taMin5Low, taMin5High, taMax5, taMax5Low, taMax5High, taMin6, taMin6Low,
+                                       taMin6High, taMax6, taMax6Low, taMax6High, taMin7, taMin7Low, taMin7High, taMax7,
+                                       taMax7Low, taMax7High, taMin8, taMin8Low, taMin8High, taMax8, taMax8Low,
+                                       taMax8High, taMin9, taMin9Low, taMin9High, taMax9, taMax9Low, taMax9High,
+                                       taMin10, taMin10Low, taMin10High, taMax10, taMax10Low, taMax10High)
+        VALUES (#{mediumTempId}, #{tmFc}, #{regId}, #{taMin3},#{taMin3Low}, #{taMin3High}, #{taMax3}, #{taMax3Low},
+                #{taMax3High},
+                #{taMin4}, #{taMin4Low}, #{taMin4High}, #{taMax4}, #{taMax4Low}, #{taMax4High},
+                #{taMin5}, #{taMin5Low}, #{taMin5High}, #{taMax5}, #{taMax5Low}, #{taMax5High}, #{taMin6}, #{taMin6Low},
+                #{taMin6High}, #{taMax6}, #{taMax6Low}, #{taMax6High}, #{taMin7}, #{taMin7Low}, #{taMin7High}, #{taMax7},
+                #{taMax7Low}, #{taMax7High}, #{taMin8}, #{taMin8Low}, #{taMin8High}, #{taMax8}, #{taMax8Low},
+                #{taMax8High}, #{taMin9}, #{taMin9Low}, #{taMin9High}, #{taMax9}, #{taMax9Low}, #{taMax9High},
+                #{taMin10}, #{taMin10Low}, #{taMin10High}, #{taMax10}, #{taMax10Low}, #{taMax10High})
+    </insert>
+
+    <select id="findByBaseTime" parameterType="String"
+            resultType="com.ydmins.mybatisopenapi.model.MediumTemperatureForecast">
+        SELECT *
+        FROM mediumTemperatureForecast
+        WHERE tmFc = #{tmFc}
+    </select>
+
+    <delete id="deleteById" parameterType="String">
+        DELETE
+        FROM mediumTemperatureForecast
+        WHERE mediumTempId = #{mediumTempId}
+    </delete>
+</mapper>
