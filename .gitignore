@@ -5,6 +5,10 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
+### PROPERTIES ###
+src/main/resources/application-apikey.properties
+src/main/resources/application-rds.properties
+
 ### STS ###
 .apt_generated
 .classpath
